@@ -5,10 +5,15 @@
 
 
 
-
+/**
+ * @brief Loads CSS styling from an external file.
+ *
+ * Applies the styles defined in "style.css" to the GTK application using
+ * GtkCssProvider. The provider is added with user-level priority.
+ */
 void load_css(void) {
     GtkCssProvider *provider = gtk_css_provider_new();
-    gtk_css_provider_load_from_path(provider, "style.css");
+    gtk_css_provider_load_from_path(provider, "../style.css");
 
     gtk_style_context_add_provider_for_display(
         gdk_display_get_default(),
@@ -20,6 +25,15 @@ void load_css(void) {
 }
 
 
+
+/**
+ * @brief Activates the GTK application and sets up the main window.
+ *
+ * Initializes the ViewFactory, creates the main and second views,
+ * adds them to the factory's stack, and sets the initial visible view.
+ *
+ * @param app Pointer to the GtkApplication instance.
+ */
 void activate(GtkApplication *app){
     load_css();
     GtkWidget *window;
@@ -49,6 +63,15 @@ void activate(GtkApplication *app){
 }
 
 
+
+/**
+ * @brief Callback triggered when a button is clicked.
+ *
+ * Prints a message and switches the visible view to "second_view".
+ *
+ * @param button Pointer to the clicked GtkWidget.
+ * @param data Pointer to the ViewFactory instance.
+ */
 void on_button_clicked(GtkWidget *button, gpointer data){
     g_print("I was clicked");
     view_factory_switch((ViewFactory *)data, "second_view");
@@ -56,6 +79,15 @@ void on_button_clicked(GtkWidget *button, gpointer data){
 
 
 
+/**
+ * @brief Creates the main view layout.
+ *
+ * Constructs a GtkGrid containing a GtkTextView and a button.
+ * The button switches to the second view when clicked.
+ *
+ * @param window Pointer to the parent GtkWindow.
+ * @return GtkWidget* representing the main view.
+ */
 GtkWidget *create_main_view(GtkWidget *window){
     
     
@@ -85,6 +117,17 @@ GtkWidget *create_main_view(GtkWidget *window){
 
 }
 
+
+
+/**
+ * @brief Creates the second view layout.
+ *
+ * Constructs a GtkGrid containing a single button.
+ * The button switches to the second view when clicked.
+ *
+ * @param window Pointer to the parent GtkWindow.
+ * @return GtkWidget* representing the second view.
+ */
 GtkWidget *create_second_view(GtkWidget *window){
      GtkWidget *grid = NULL;
     grid = gtk_grid_new();
@@ -93,7 +136,7 @@ GtkWidget *create_second_view(GtkWidget *window){
     GtkWidget *button = NULL;
 
     button = gtk_button_new_with_label("second test button");
-    g_signal_connect(button, "clicked", G_CALLBACK(on_button_clicked), factory);
+    // g_signal_connect(button, "clicked", G_CALLBACK(on_button_clicked), factory);
     gtk_grid_attach(GTK_GRID(grid), button, 0, 1, 1, 1);
 
 

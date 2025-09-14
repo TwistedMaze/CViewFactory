@@ -3,7 +3,16 @@
 #include"callbacks.h"
 
 
-
+/**
+ * @brief Main function of the application.
+ *
+ * Creates a new GtkApplication instance, connects the "activate" signal to the
+ * activate callback, and runs the application.
+ *
+ * @param argc Argument count.
+ * @param argv Argument vector.
+ * @return Exit status of the application.
+ */
 int main(int argc, char **argv){
 
      
