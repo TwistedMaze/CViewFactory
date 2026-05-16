@@ -23,6 +23,8 @@ This project builds both a reusable shared library (`libviewfactory.so`) and a d
 - GTK4 development libraries
   - Debian/Ubuntu: `sudo apt install libgtk-4-dev`
   - Fedora: `sudo dnf install gtk4-devel`
+  - Arch Linux: `sudo pacman -Syu gtk4`
+  - Windows (MSYS2): install MSYS2 and then `pacman -S mingw-w64-x86_64-gtk4 mingw-w64-x86_64-toolchain`
 
 ---
 
@@ -47,7 +49,32 @@ From `build/`:
 
 ---
 
-## 📁 Project Structure
+## � Use the shared library in another project
+
+After building:
+
+- shared library: `build/lib/libviewfactory.so`
+- headers: `build/lib/include`
+
+In another C project, include the headers and link against the library, for example:
+
+```cmake
+include_directories("${CMAKE_SOURCE_DIR}/path/to/CViewFactory/build/lib/include")
+link_directories("${CMAKE_SOURCE_DIR}/path/to/CViewFactory/build/lib")
+add_executable(MyApp src/main.c)
+target_link_libraries(MyApp PRIVATE viewfactory ${GTK_LIBRARIES})
+```
+
+Or with GCC directly:
+
+```bash
+gcc -o MyApp src/main.c -I/path/to/CViewFactory/build/lib/include \
+    -L/path/to/CViewFactory/build/lib -lviewfactory $(pkg-config --cflags --libs gtk4)
+```
+
+---
+
+## �📁 Project Structure
 
 - `CMakeLists.txt` — build configuration
 - `inc/` — public header files
