@@ -49,7 +49,7 @@ From `build/`:
 
 ---
 
-## � Use the shared library in another project
+## Use the shared library in another project
 
 After building:
 
@@ -74,7 +74,7 @@ gcc -o MyApp src/main.c -I/path/to/CViewFactory/build/lib/include \
 
 ---
 
-## �📁 Project Structure
+## Project Structure
 
 - `CMakeLists.txt` — build configuration
 - `inc/` — public header files
