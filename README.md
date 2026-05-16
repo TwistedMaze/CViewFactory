@@ -94,10 +94,15 @@ gcc -o MyApp src/main.c -I/path/to/CViewFactory/build/lib/include \
 
 ## 📜 License
 
-Add a license file before publishing this repo publicly. `MIT` is a good choice for educational projects.
+This project is licensed under the MIT License. See the `LICENSE` file for details.
 
 ---
 
 ## 💡 Contribution
 
-Feedback and suggestions are welcome. If you publish this as a public repo, consider adding `CONTRIBUTING.md` for contribution guidelines.
+Contributions are welcome. If you want to help improve the project, please:
+
+- open an issue for bugs or feature suggestions
+- submit a pull request with a clear description
+- keep changes small and focused
+- use the existing C and GTK4 style for new code
