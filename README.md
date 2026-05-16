@@ -1,6 +1,8 @@
 # ViewFactory GTK Library
 
-A lightweight GTK4-based C library for managing and switching between multiple views using `GtkStack`. Designed as a simple learning tool for GTK4 and C, with a demo executable that shows how to use the library.
+A lightweight GTK4-based C library for managing and switching between multiple views using `GtkStack`. Designed as a simple learning tool for students looking to build cross-platform applications in C with GTK4.
+
+This project was created to help learners understand memory management, GTK initialization and cleanup, and proper function sequencing. It adapts the Factory Pattern from object-oriented design to C to reduce repetition and encapsulate view creation and switching logic.
 
 This project builds both a reusable shared library (`libviewfactory.so`) and a demo program (`FactoryMethod`) that demonstrates view switching.
 
@@ -13,6 +15,15 @@ This project builds both a reusable shared library (`libviewfactory.so`) and a d
 - GTK4 CSS styling support using `GtkCssProvider`
 - Simple demo app for beginners
 - Shared library output for reuse in other GTK applications
+
+---
+
+## 📚 What is GTK?
+
+GTK (GIMP Toolkit) is a free, cross-platform toolkit for building graphical user interfaces (GUIs).
+GTK4 is the latest version and runs on Linux, macOS, and Windows. This library simplifies GTK4 by
+providing an easy way to manage multiple screens and switch between them—allowing you to focus on
+learning C and building something tangible without wrestling with complex GUI code.
 
 ---
 
